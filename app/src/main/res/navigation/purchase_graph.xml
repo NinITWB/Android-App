@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/purchase_graph"
+    app:startDestination="@id/fragmentHome">
+
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.example.finalprojecte.fragments.purchase.FragmentHome"
+        android:label="FragmentHome"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentProductDetails"
+            app:destination="@id/fragmentProductDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSearch"
+        android:name="com.example.finalprojecte.fragments.purchase.FragmentSearch"
+        android:label="FragmentSearch"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_fragmentSearch_to_fragmentProductDetails"
+            app:destination="@id/fragmentProductDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentCart"
+        android:name="com.example.finalprojecte.fragments.purchase.FragmentCart"
+        android:label="FragmentCart"
+        tools:layout="@layout/fragment_cart">
+        <action
+            android:id="@+id/action_fragmentCart_to_fragmentProductDetails"
+            app:destination="@id/fragmentProductDetails" />
+        <action
+            android:id="@+id/action_fragmentCart_to_billingFragment"
+            app:destination="@id/billingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentProfile"
+        android:name="com.example.finalprojecte.fragments.purchase.FragmentProfile"
+        android:label="FragmentProfile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_fragmentProfile_to_userAccountFragment"
+            app:destination="@id/userAccountFragment" />
+        <action
+            android:id="@+id/action_fragmentProfile_to_fragmentAddress"
+            app:destination="@id/fragmentAddress" />
+        <action
+            android:id="@+id/action_fragmentProfile_to_billingFragment"
+            app:destination="@id/billingFragment" />
+        <action
+            android:id="@+id/action_fragmentProfile_to_fragmentCart"
+            app:destination="@id/fragmentCart" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentProductDetails"
+        android:name="com.example.finalprojecte.fragments.purchase.FragmentProductDetails"
+        android:label="FragmentProductDetails"
+        tools:layout="@layout/fragment_product_details">
+        <argument
+            android:name="product"
+            app:argType="com.example.finalprojecte.data.Products" />
+        <action
+            android:id="@+id/action_fragmentProductDetails_to_billingFragment"
+            app:destination="@id/billingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userAccountFragment"
+        android:name="com.example.finalprojecte.fragments.settings.UserAccountFragment"
+        android:label="UserAccountFragment"
+        tools:layout="@layout/fragment_user_account"/>
+    <fragment
+        android:id="@+id/fragmentAddress"
+        android:name="com.example.finalprojecte.fragments.purchase.FragmentAddress"
+        android:label="FragmentAddress"
+        tools:layout="@layout/fragment_address"/>
+    <fragment
+        android:id="@+id/billingFragment"
+        android:name="com.example.finalprojecte.fragments.purchase.BillingFragment"
+        android:label="BillingFragment"
+        tools:layout="@layout/fragment_billing">
+        <action
+            android:id="@+id/action_billingFragment_to_fragmentAddress"
+            app:destination="@id/fragmentAddress" />
+        <argument
+            android:name="totalPrice"
+            app:argType="float" />
+        <argument
+            android:name="products"
+            app:argType="com.example.finalprojecte.data.CartProducts[]" />
+
+
+    </fragment>
+</navigation>

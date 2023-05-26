@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_register_graph"
+    app:startDestination="@id/fragment_Introduction">
+
+    <fragment
+        android:id="@+id/fragment_Introduction"
+        android:name="com.example.finalprojecte.fragments.loginRegister.FragmentIntroduction"
+        android:label="Fragment_Introduction"
+        tools:layout="@layout/fragment_introduction">
+        <action
+            android:id="@+id/action_fragment_Introduction_to_fragment_Account"
+            app:destination="@id/fragment_Account"
+            app:enterAnim="@anim/from_bottom" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Login"
+        android:name="com.example.finalprojecte.fragments.loginRegister.FragmentLogin"
+        android:label="Fragment_Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_fragment_Login_to_fragment_Register"
+            app:destination="@id/fragment_Register"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/fragment_Account" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Register"
+        android:name="com.example.finalprojecte.fragments.loginRegister.FragmentRegister"
+        android:label="Fragment_Register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_fragment_Register_to_fragment_Login"
+            app:destination="@id/fragment_Login"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/fragment_Account" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Account"
+        android:name="com.example.finalprojecte.fragments.loginRegister.FragmentAccount"
+        android:label="Fragment_Account"
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/action_fragment_Account_to_fragment_Login"
+            app:destination="@id/fragment_Login"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_fragment_Account_to_fragment_Register"
+            app:destination="@id/fragment_Register"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
+    </fragment>
+</navigation>
